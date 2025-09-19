@@ -10,6 +10,9 @@ PASSWORD = "USIL2025"# os.getenv("password")
 HOST = "db.gdflcfsljmmeuvsjnzlf.supabase.co" #os.getenv("host")
 PORT = "5432" #os.getenv("port")
 DBNAME = "postgres" #os.getenv("dbname")
+
+# Configuración de la página
+st.set_page_config(page_title="Predictor de Iris", page_icon="🌸")
 # Connect to the database
 try:
     connection = psycopg2.connect(
@@ -34,10 +37,9 @@ try:
     print("Connection closed.")
 
 except Exception as e:
-    print(f"Failed to connect: {e}")
+    st.write(str(e))
 
-# Configuración de la página
-st.set_page_config(page_title="Predictor de Iris", page_icon="🌸")
+
 
 # Función para cargar los modelos
 @st.cache_resource
