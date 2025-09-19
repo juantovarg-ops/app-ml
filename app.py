@@ -3,6 +3,39 @@ import joblib
 import pickle
 import numpy as np
 
+import psycopg2
+# Fetch variables
+USER = "postgres" #os.getenv("user")
+PASSWORD = "USIL2025"# os.getenv("password")
+HOST = "db.gdflcfsljmmeuvsjnzlf.supabase.co" #os.getenv("host")
+PORT = "5432" #os.getenv("port")
+DBNAME = "postgres" #os.getenv("dbname")
+# Connect to the database
+try:
+    connection = psycopg2.connect(
+        user=USER,
+        password=PASSWORD,
+        host=HOST,
+        port=PORT,
+        dbname=DBNAME
+    )
+    print("Connection successful!")
+    
+    # Create a cursor to execute SQL queries
+    cursor = connection.cursor()
+    
+    # Example query
+    cursor.execute("SELECT NOW();")
+    result = cursor.fetchone()
+    print("Current Time:", result)
+    # Close the cursor and connection
+    cursor.close()
+    connection.close()
+    print("Connection closed.")
+
+except Exception as e:
+    print(f"Failed to connect: {e}")
+
 # Configuración de la página
 st.set_page_config(page_title="Predictor de Iris", page_icon="🌸")
 
@@ -28,6 +61,7 @@ model, scaler, model_info = load_models()
 if model is not None:
     # Inputs
     st.header("Ingresa las características de la flor:")
+    st.write(result)
     
     sepal_length = st.number_input("Longitud del Sépalo (cm)", min_value=0.0, max_value=10.0, value=5.0, step=0.1)
     sepal_width = st.number_input("Ancho del Sépalo (cm)", min_value=0.0, max_value=10.0, value=3.0, step=0.1)
