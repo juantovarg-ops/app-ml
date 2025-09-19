@@ -164,7 +164,7 @@ st.markdown('''
     ''', unsafe_allow_html=True)
 
 # insert an image
-st.image(image, caption=None, width='auto', use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+st.image(image, caption=None, width='content', use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
 
 # Create app interface
