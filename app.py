@@ -57,6 +57,12 @@ def make_prediction(data, transformer, model):
     dict_new_old_cols = dict(zip(data.columns, new_columns)) # create a dict of original columns and new columns
     data = data.rename(columns=dict_new_old_cols)
     feature_engineering(data) # create new features
+    for name, transformer_obj in transformer.named_transformers_.items():
+        if hasattr(transformer_obj, 'named_steps'):
+            for step_name, step in transformer_obj.named_steps.items():
+                if isinstance(step, SimpleImputer) and not hasattr(step, '_fit_dtype'):
+                    # Set a default dtype (adjust based on your data)
+                    step._fit_dtype = np.float64
     transformed_data = transformer.transform(data) # transform the data using the transformer    
     combine_cats_nums(transformed_data, transformer)# create a dataframe from the transformed data 
     # make prediction
