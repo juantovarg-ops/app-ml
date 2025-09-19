@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from PIL import Image
 import pandas as pd
-from src.utils import load_pickle, make_prediction, process_label, process_json_csv, output_batch, return_columns
+from utils import load_pickle, make_prediction, process_label, process_json_csv, output_batch, return_columns
 import os
 import pickle
 from functools import lru_cache
