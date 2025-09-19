@@ -10,9 +10,9 @@ st.set_page_config(page_title="Predictor de Iris", page_icon="🌸")
 @st.cache_resource
 def load_models():
     try:
-        model = joblib.load('models/iris_model.pkl')
-        scaler = joblib.load('models/iris_scaler.pkl')
-        with open('models/model_info.pkl', 'rb') as f:
+        model = joblib.load('components/iris_model.pkl')
+        scaler = joblib.load('components/iris_scaler.pkl')
+        with open('components/model_info.pkl', 'rb') as f:
             model_info = pickle.load(f)
         return model, scaler, model_info
     except FileNotFoundError:
