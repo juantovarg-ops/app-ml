@@ -118,11 +118,11 @@ def load_pickle(filename):
 
 cur_dir = os.getcwd()
 
-image_path = os.path.join(cur_dir, 'static/image.jpg')
+image_path = os.path.join(cur_dir, 'image.jpg')
 image = Image.open(image_path)
 
-model_path = os.path.join(cur_dir,'..', 'components', 'model-1.pkl')
-transformer_path = os.path.join(cur_dir,'..', 'components', 'preprocessor.pkl')
+model_path = os.path.join(cur_dir,'components', 'model-1.pkl')
+transformer_path = os.path.join(cur_dir,'components', 'preprocessor.pkl')
 
 model = load_pickle(model_path)
 transformer = load_pickle(transformer_path)
