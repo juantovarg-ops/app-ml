@@ -72,7 +72,7 @@ if model is not None:
     petal_width = st.number_input("Ancho del Pétalo (cm)", min_value=0.0, max_value=10.0, value=1.0, step=0.1)
     
     # Botón de predicción
-    if st.button("Predecir Especie"):
+    if st.button("Predecir"):
         # Preparar datos
         features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
         
