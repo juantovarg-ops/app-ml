@@ -3,12 +3,13 @@ import joblib
 import pickle
 import numpy as np
 # postgresql://postgres.gdflcfsljmmeuvsjnzlf:[YOUR-PASSWORD]@aws-1-us-east-2.pooler.supabase.com:6543/postgres
+# postgresql://postgres.oifnmsouiljriagbdzhz:[YOUR-PASSWORD]@aws-1-us-east-2.pooler.supabase.com:5432/postgres
 import psycopg2
 # Fetch variables
-USER = "postgres.gdflcfsljmmeuvsjnzlf" #os.getenv("user")
+USER = "postgres.oifnmsouiljriagbdzhz" #os.getenv("user")
 PASSWORD = "USIL2025"# os.getenv("password")
 HOST = "aws-1-us-east-2.pooler.supabase.com" #os.getenv("host")
-PORT = "6543" #os.getenv("port")
+PORT = "5432" #os.getenv("port")
 DBNAME = "postgres" #os.getenv("dbname")
 
 # Configuración de la página
